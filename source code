@@ -1,0 +1,114 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <cstdio>
+#include<iostream>
+#include<cstring>
+#include<process.h>
+using namespace std;
+class book 
+{ 
+    char bno[6], bname[50], aname[20];
+    public: 
+    void create_book();
+    void show_book();
+    void modify_book();
+    char* retbno()
+    {return bno;
+    }
+    void report();
+};//class ends here
+class student 
+{ char admno[6],name[20],stbno[6]; 
+int token;
+public:
+void create_student();
+void show_student();
+void modify_student();
+char* retadmno();
+char* retstbno();
+int rettoken();
+void addtoken()
+{
+    token=1;
+    
+}
+void resettoken() {
+    token=0;
+    
+} 
+void getstbno(char t[])
+{ strcpy(stbno,t); } 
+void report() 
+{
+    cout<<"\t"<<admno<<setw(20)<<name<<setw(10)<<token<<endl;
+    
+}
+}; //class ends here
+class admin:public book, public student//admin makes changes to the entire record
+{int ar[];//req members will be added
+};
+void book :: create_book()
+{ clrscr(); 
+cout<<"\nNEW BOOK ENTRY...\n";
+cout<<"\nEnter The book no.";
+cin>>bno; 
+cout<<"\n\nEnter The Name of The Book ";
+gets(bname);
+cout<<"\n\nEnter The Author's Name "; 
+gets(aname); 
+cout<<"\n\n\nBook Created..";
+}
+void book :: show_book()
+{cout<<"\nBook no. : "<<bno;
+cout<<"\nBook Name : ";
+puts(bname);
+cout<<"Author Name : ";
+puts(aname);
+}
+void book :: modify_book()
+{
+    cout<<"\nBook no. : "<<bno; 
+cout<<"\nModify Book Name : ";
+gets(bname);
+cout<<"\nModify Author's Name of Book : ";
+gets(aname);
+}
+void book :: report()//formatting output
+{cout<<bno<<setw(30)<<bname<<setw(30)<<aname<<endl;
+}
+void student ::  create_student()
+{clrscr(); 
+cout<<"\nNEW STUDENT ENTRY...\n";
+cout<<"\nEnter The admission no. of the student";
+cin>>admno; 
+cout<<"\n\nEnter the name of the student ";
+gets(name); 
+token=0;//no book issued
+stbno[0]='/0';
+cout<<"\n\nStudent record has been created":
+}
+void student :: show_student()
+{cout<<"\nAdmission no. : "<<admno; 
+cout<<"\nStudent Name : "; 
+puts(name);
+cout<<"\nNo of Book issued : "<<token; 
+if(token==1) //if a book is issued
+cout<<"\nBook No "<<stbno; 
+    
+}
+
+
+
+
+
+int main()
+{
+    
+    return 0;
+}
